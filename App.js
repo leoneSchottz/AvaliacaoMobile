@@ -6,7 +6,7 @@ const ApareceJson = () => {
 
   const [valormostrado, setValorMostrado] = useState('');
 
-  const [short_link, setShortLink] = useState('');
+  const [feriados, setFeriados] = useState('');
 
   const mostrarValor = () => {
     const aux = []
@@ -17,7 +17,7 @@ const ApareceJson = () => {
         {aux.push('Reveillon ' + element.date)} 
         else if (element.name == 'Carnaval' || element.name == 'Tiradentes') {aux.push(element.name + ' ' + element.date)};
       });
-      setShortLink(aux);
+      setFeriados(aux);
     } catch (error) {
       alert(error);
     }
@@ -28,7 +28,7 @@ const ApareceJson = () => {
     <ScrollView style={styles.container}>
       <TextInput multiline style={styles.inputTypeDesign} onChangeText={setValorMostrado} value={valormostrado}></TextInput>
       <Button title='Valor Mostrado' onPress={mostrarValor} styles={styles.button} />
-      <Text multiline style={styles.resultado} >{short_link}</Text>
+      <Text multiline style={styles.resultado} >{feriados}</Text>
     </ScrollView>
     </SafeAreaView>
   )
